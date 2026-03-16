@@ -5,3 +5,5 @@ pydantic
 python-dotenv
 openai
 pypdf
+sentence-transformers
+torch
