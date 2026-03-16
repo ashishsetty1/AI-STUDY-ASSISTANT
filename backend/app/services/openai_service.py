@@ -4,10 +4,20 @@ from openai import OpenAI
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+_client = None
+
+
+def get_client():
+    global _client
+    if _client is None:
+        api_key = os.getenv("OPENAI_API_KEY")
+        _client = OpenAI(api_key=api_key)
+    return _client
 
 
 def summarize_text(text: str) -> str:
+    client = get_client()
+
     truncated_text = text[:4000]
 
     response = client.chat.completions.create(
@@ -28,6 +38,8 @@ def summarize_text(text: str) -> str:
 
 
 def answer_question(question: str, context_chunks: list[str]) -> str:
+    client = get_client()
+
     context = "\n\n".join(context_chunks)
 
     response = client.chat.completions.create(
