@@ -7,3 +7,4 @@ openai
 pypdf
 sentence-transformers
 torch
+chromadb
