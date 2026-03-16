@@ -3,12 +3,6 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 from pydantic import BaseModel
 
 from app.services.pdf_service import extract_text_from_pdf
-from app.services.vector_service import (
-    store_document_chunks,
-    search_similar_chunks,
-    get_all_filenames,
-)
-from app.services.openai_service import answer_question
 
 router = APIRouter()
 
@@ -22,6 +16,8 @@ class QuestionRequest(BaseModel):
 
 @router.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
+    from app.services.vector_service import store_document_chunks
+
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Only PDF files are allowed.")
 
@@ -46,6 +42,9 @@ async def upload_pdf(file: UploadFile = File(...)):
 
 @router.post("/ask")
 def ask_question(request: QuestionRequest):
+    from app.services.vector_service import search_similar_chunks
+    from app.services.openai_service import answer_question
+
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 
@@ -69,4 +68,6 @@ def ask_question(request: QuestionRequest):
 
 @router.get("/files")
 def get_uploaded_files():
+    from app.services.vector_service import get_all_filenames
+
     return {"files": get_all_filenames()}
