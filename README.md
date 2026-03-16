@@ -94,10 +94,7 @@ ai-study-assistant
 Screenshots
 
 ## Upload Interface
-![Upload Page](screenshots/upload.png)
-
-## AI Chat Interface
-![Chat Interface](screenshots/chat.png)
+![Upload Page/Response](screenshots/AIResponse.png)
 
 1. Clone the Repository
 git clone https://github.com/YOUR_USERNAME/ai-study-assistant.git
