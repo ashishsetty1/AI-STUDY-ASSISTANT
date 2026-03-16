@@ -1,0 +1,324 @@
+AI PDF Study Assistant
+
+An AI-powered study assistant that allows students to upload PDFs such as lecture slides, study guides, or notes and ask questions about the content. The application uses the OpenAI API and vector retrieval to generate context-aware answers based on the uploaded material.
+
+The system extracts text from PDFs, converts the content into embeddings, and retrieves relevant sections when a user asks a question. This enables the AI to provide accurate responses grounded in the student's study material.
+
+Features
+
+• Upload lecture slides, study guides, or notes as PDFs
+• Extract and process text from uploaded documents
+• Ask natural language questions about the document
+• Context-aware responses using vector retrieval
+• Clean and responsive React user interface
+• FastAPI backend for AI processing and document handling
+
+Tech Stack
+Frontend
+
+React
+
+JavaScript
+
+CSS
+
+Backend
+
+Python
+
+FastAPI
+
+AI & Retrieval
+
+OpenAI API
+
+Vector embeddings
+
+Retrieval-based question answering
+
+PDF text extraction
+
+How It Works
+
+The user uploads a PDF containing study material.
+
+The backend extracts the text from the document.
+
+The text is split into smaller chunks.
+
+Each chunk is converted into vector embeddings.
+
+When the user asks a question, the system retrieves the most relevant chunks.
+
+The retrieved context is sent to the OpenAI API.
+
+The AI generates an answer based on the document content.
+
+Project Architecture
+User
+ │
+ ▼
+React Frontend
+ │
+ ▼
+FastAPI Backend
+ │
+ ├── PDF Upload & Text Extraction
+ ├── Text Chunking
+ ├── Embedding Generation
+ └── Vector Retrieval
+ │
+ ▼
+OpenAI API
+ │
+ ▼
+AI Generated Answer
+Project Structure
+project-root
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   └── App.jsx
+│   └── package.json
+│
+├── backend
+│   ├── app
+│   │   ├── routes
+│   │   ├── services
+│   │   └── main.py
+│   └── requirements.txt
+│
+└── README.md
+Installation
+1. Clone the Repository
+git clone https://github.com/YOUR_USERNAME/ai-pdf-study-assistant.git
+cd ai-pdf-study-assistant
+Backend Setup (FastAPI)
+
+Create a virtual environment
+
+python -m venv venv
+
+Activate environment
+
+Windows
+
+venv\Scripts\activate
+
+Mac/Linux
+
+source venv/bin/activate
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run the backend server
+
+uvicorn app.main:app --reload
+
+Backend will run at
+
+http://localhost:8000
+Frontend Setup (React)
+
+Navigate to the frontend folder
+
+cd frontend
+
+Install dependencies
+
+npm install
+
+Start the development server
+
+npm run dev
+
+Frontend will run at
+
+http://localhost:5173
+Environment Variables
+
+Create a .env file inside the backend directory.
+
+OPENAI_API_KEY=your_openai_api_key_here
+Future Improvements
+
+• Support multiple document uploads
+• Persistent vector database (Pinecone / FAISS / Chroma)
+• Highlight source text used for answers
+• Authentication and user accounts
+• Deployment to cloud platforms
+• Mobile-friendly UI
+
+Author
+
+Ashish Setty
+
+Full Stack Developer
+Built with React, FastAPI, and OpenAI API.
+=======
+AI PDF Study Assistant
+
+An AI-powered study assistant that allows students to upload PDFs such as lecture slides, study guides, or notes and ask questions about the content. The application uses the OpenAI API and vector retrieval to generate context-aware answers based on the uploaded material.
+
+The system extracts text from PDFs, converts the content into embeddings, and retrieves relevant sections when a user asks a question. This enables the AI to provide accurate responses grounded in the student's study material.
+
+Features
+
+• Upload lecture slides, study guides, or notes as PDFs
+• Extract and process text from uploaded documents
+• Ask natural language questions about the document
+• Context-aware responses using vector retrieval
+• Clean and responsive React user interface
+• FastAPI backend for AI processing and document handling
+
+Tech Stack
+Frontend
+
+React
+
+JavaScript
+
+CSS
+
+Backend
+
+Python
+
+FastAPI
+
+AI & Retrieval
+
+OpenAI API
+
+Vector embeddings
+
+Retrieval-based question answering
+
+PDF text extraction
+
+How It Works
+
+The user uploads a PDF containing study material.
+
+The backend extracts the text from the document.
+
+The text is split into smaller chunks.
+
+Each chunk is converted into vector embeddings.
+
+When the user asks a question, the system retrieves the most relevant chunks.
+
+The retrieved context is sent to the OpenAI API.
+
+The AI generates an answer based on the document content.
+
+Project Architecture
+User
+ │
+ ▼
+React Frontend
+ │
+ ▼
+FastAPI Backend
+ │
+ ├── PDF Upload & Text Extraction
+ ├── Text Chunking
+ ├── Embedding Generation
+ └── Vector Retrieval
+ │
+ ▼
+OpenAI API
+ │
+ ▼
+AI Generated Answer
+Project Structure
+project-root
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   └── App.jsx
+│   └── package.json
+│
+├── backend
+│   ├── app
+│   │   ├── routes
+│   │   ├── services
+│   │   └── main.py
+│   └── requirements.txt
+│
+└── README.md
+Installation
+1. Clone the Repository
+git clone https://github.com/YOUR_USERNAME/ai-pdf-study-assistant.git
+cd ai-pdf-study-assistant
+Backend Setup (FastAPI)
+
+Create a virtual environment
+
+python -m venv venv
+
+Activate environment
+
+Windows
+
+venv\Scripts\activate
+
+Mac/Linux
+
+source venv/bin/activate
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run the backend server
+
+uvicorn app.main:app --reload
+
+Backend will run at
+
+http://localhost:8000
+Frontend Setup (React)
+
+Navigate to the frontend folder
+
+cd frontend
+
+Install dependencies
+
+npm install
+
+Start the development server
+
+npm run dev
+
+Frontend will run at
+
+http://localhost:5173
+Environment Variables
+
+Create a .env file inside the backend directory.
+
+OPENAI_API_KEY=your_openai_api_key_here
+Future Improvements
+
+• Support multiple document uploads
+• Persistent vector database (Pinecone / FAISS / Chroma)
+• Highlight source text used for answers
+• Authentication and user accounts
+• Deployment to cloud platforms
+• Mobile-friendly UI
+
+Author
+
+Ashish Setty
+
+Full Stack Developer
+Built with React, FastAPI, and OpenAI API.
+
