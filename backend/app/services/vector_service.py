@@ -1,7 +1,15 @@
 from sentence_transformers import SentenceTransformer
 import chromadb
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+_model = None
+
+
+def get_model():
+    global _model
+    if _model is None:
+        _model = SentenceTransformer("all-MiniLM-L6-v2")
+    return _model
+
 
 chroma_client = chromadb.PersistentClient(path="chroma_db")
 collection = chroma_client.get_or_create_collection(name="study_documents")
@@ -25,6 +33,7 @@ def store_document_chunks(text: str, filename: str):
     if not chunks:
         return
 
+    model = get_model()
     embeddings = model.encode(chunks).tolist()
     ids = [f"{filename}_chunk_{i}" for i in range(len(chunks))]
     metadatas = [{"filename": filename} for _ in chunks]
@@ -38,6 +47,7 @@ def store_document_chunks(text: str, filename: str):
 
 
 def search_similar_chunks(query: str, top_k: int = 3):
+    model = get_model()
     query_embedding = model.encode([query]).tolist()[0]
 
     results = collection.query(

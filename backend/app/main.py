@@ -27,3 +27,7 @@ app.include_router(documents_router, prefix="/documents", tags=["Documents"])
 @app.get("/")
 def root():
     return {"message": "AI Study Assistant backend is running"}
+
+@app.get("/")
+def root():
+    return {"status": "ok"}
