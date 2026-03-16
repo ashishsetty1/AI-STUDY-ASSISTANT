@@ -8,7 +8,7 @@ app = FastAPI(title="AI Study Assistant")
 
 origins = [
     "http://localhost:3000",
-    "https://AI-STUDY-ASSISTANT.vercel.app",
+    "https://ai-study-assistant.vercel.app",
 ]
 
 app.add_middleware(
@@ -23,10 +23,6 @@ app.include_router(upload_router, prefix="/upload", tags=["Upload"])
 app.include_router(ai_router, prefix="/ai", tags=["AI"])
 app.include_router(documents_router, prefix="/documents", tags=["Documents"])
 
-
-@app.get("/")
-def root():
-    return {"message": "AI Study Assistant backend is running"}
 
 @app.get("/")
 def root():
